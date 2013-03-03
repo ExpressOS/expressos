@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA3DC7C3-BA34-40C6-94A5-D8825359EF5D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExpressOS.Kernel</RootNamespace>
+    <AssemblyName>ExpressOS.Kernel</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-L4|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Binaries\Release-L4\</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>
+    </DefineConstants>
+    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>False</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsInferRequires>False</CodeContractsInferRequires>
+    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+    <CodeContractsSuggestRequires>True</CodeContractsSuggestRequires>
+    <CodeContractsSuggestEnsures>False</CodeContractsSuggestEnsures>
+    <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>True</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>DoNotBuild</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CodeContracts-L4|AnyCPU'">
+    <OutputPath>..\..\Binaries\CodeContracts-L4\</OutputPath>
+    <DefineConstants>ARCH_L4</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>True</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>False</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsInferRequires>False</CodeContractsInferRequires>
+    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <CodeContractsSuggestAssumptions>True</CodeContractsSuggestAssumptions>
+    <CodeContractsSuggestRequires>True</CodeContractsSuggestRequires>
+    <CodeContractsSuggestEnsures>True</CodeContractsSuggestEnsures>
+    <CodeContractsSuggestObjectInvariants>True</CodeContractsSuggestObjectInvariants>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>True</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions>-show unreached</CodeContractsExtraAnalysisOptions>
+    <CodeContractsBaseLineFile>..\..\baseline.xml</CodeContractsBaseLineFile>
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>2</CodeContractsAnalysisWarningLevel>
+    <CodeContractsMissingPublicRequiresAsWarnings>True</CodeContractsMissingPublicRequiresAsWarnings>
+    <CodeContractsSQLServerOption />
+    <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AddressSpace.cs" />
+    <Compile Include="AddressSpaceDafny.cs" />
+    <Compile Include="BridgeCompletion.cs" />
+    <Compile Include="Credential.cs" />
+    <Compile Include="DataTypes.cs" />
+    <Compile Include="Filesystem\IOCompletion.cs" />
+    <Compile Include="Filesystem\sfs\CachePageHolder.cs" />
+    <Compile Include="Filesystem\sfs\SecureFSInodeDafny.cs" />
+    <Compile Include="Filesystem\vbinder\VBinderMessageBuffer.cs" />
+    <Compile Include="Filesystem\FileDescriptorTable.cs" />
+    <Compile Include="Filesystem\sfs\CachePage.cs" />
+    <Compile Include="ELFParser.cs" />
+    <Compile Include="Filesystem\AshmemINode.cs" />
+    <Compile Include="CompletionQueue.cs" />
+    <Compile Include="Filesystem\binder\BinderCompletion.cs" />
+    <Compile Include="Filesystem\binder\BinderINode.cs" />
+    <Compile Include="Filesystem\BinderSharedINode.cs" />
+    <Compile Include="Filesystem\binder\BinderIPCMarshaler.cs" />
+    <Compile Include="Filesystem\binder\ReadBufferUnmarshaler.cs" />
+    <Compile Include="Filesystem\ConsoleINode.cs" />
+    <Compile Include="Filesystem\File.cs" />
+    <Compile Include="Filesystem\GenericINode.cs" />
+    <Compile Include="Filesystem\ScreenBufferINode.cs" />
+    <Compile Include="Filesystem\sfs\SecureFS.cs" />
+    <Compile Include="Filesystem\sfs\SecureFSInode.cs" />
+    <Compile Include="Filesystem\SocketINode.cs" />
+    <Compile Include="Filesystem\vbinder\Capability.cs" />
+    <Compile Include="Filesystem\vbinder\VBinder.cs" />
+    <Compile Include="Filesystem\vbinder\VBinderCompletion.cs" />
+    <Compile Include="Filesystem\vbinder\VBinderMessage.cs" />
+    <Compile Include="Filesystem\vbinder\VBinderThreadState.cs" />
+    <Compile Include="Filesystem\VirtualFileSystem.cs" />
+    <Compile Include="FreeListPageAllocator.cs" />
+    <Compile Include="FutexCompletionEntry.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="LinuxMemoryAllocator.cs" />
+    <Compile Include="MemoryRegion.cs" />
+    <Compile Include="MemoryRegionDafny.cs" />
+    <Compile Include="Pager.cs" />
+    <Compile Include="Platform\L4\ArchFS.cs" />
+    <Compile Include="Platform\L4\ArchINode.cs" />
+    <Compile Include="Filesystem\OpenFileCompletion.cs" />
+    <Compile Include="Process.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityManager\SecurityManager.cs" />
+    <Compile Include="SyscallProfiler.cs" />
+    <Compile Include="Syscalls\Exec.cs" />
+    <Compile Include="Syscalls\Futex.cs" />
+    <Compile Include="Syscalls\Memory.cs" />
+    <Compile Include="Syscalls\Misc.cs" />
+    <Compile Include="Syscalls\Net.cs" />
+    <Compile Include="Syscalls\SelectHelper.cs" />
+    <Compile Include="Syscalls\TLS.cs" />
+    <Compile Include="TableWorkingSet.cs" />
+    <Compile Include="Thread.cs" />
+    <Compile Include="ThreadList.cs" />
+    <Compile Include="TimerQueue.cs" />
+    <Compile Include="UserPtr.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\ExpressOS.Kernel.Arch\ExpressOS.Kernel.Arch.csproj">
+      <Project>{EE6946D0-A89F-4B12-8833-4DE128AC7B7B}</Project>
+      <Name>ExpressOS.Kernel.Arch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpressOS.Kernel.Util\ExpressOS.Kernel.Util.csproj">
+      <Project>{5D0EB0F8-7D89-457F-A993-5DE7E588FD8E}</Project>
+      <Name>ExpressOS.Kernel.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup />
+</Project>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E5EF901C-8EF4-4FFC-84D3-24188A1D7B34}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ExpressOS.Startup</RootNamespace>
+    <AssemblyName>ExpressOS.Startup</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-L4|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Binaries\Release-L4\</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>
+    </DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CodeContracts-L4|AnyCPU'">
+    <OutputPath>..\..\Binaries\CodeContracts-L4\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="SyscallDispatcher.cs" />
+    <Compile Include="Looper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExpressOS.Kernel.Arch\ExpressOS.Kernel.Arch.csproj">
+      <Project>{EE6946D0-A89F-4B12-8833-4DE128AC7B7B}</Project>
+      <Name>ExpressOS.Kernel.Arch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpressOS.Kernel.Util\ExpressOS.Kernel.Util.csproj">
+      <Project>{5D0EB0F8-7D89-457F-A993-5DE7E588FD8E}</Project>
+      <Name>ExpressOS.Kernel.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpressOS.Kernel\ExpressOS.Kernel.csproj">
+      <Project>{DA3DC7C3-BA34-40C6-94A5-D8825359EF5D}</Project>
+      <Name>ExpressOS.Kernel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+</Project>

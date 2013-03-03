@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressOS.Kernel", "ExpressOS.Kernel\ExpressOS.Kernel.csproj", "{DA3DC7C3-BA34-40C6-94A5-D8825359EF5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressOS.Kernel.Util", "ExpressOS.Kernel.Util\ExpressOS.Kernel.Util.csproj", "{5D0EB0F8-7D89-457F-A993-5DE7E588FD8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HostTools", "HostTools", "{00579719-C202-4A2B-A2B4-CE791E25FFA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressOS.Startup", "ExpressOS.Startup\ExpressOS.Startup.csproj", "{E5EF901C-8EF4-4FFC-84D3-24188A1D7B34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressOS.Tests", "ExpressOS.Tests\ExpressOS.Tests.csproj", "{5B64F379-F862-4D0A-813C-C6C1C50E5D85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F231C9F-422A-42CB-B59E-6C4104CA2FCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressOS.Kernel.Arch", "ExpressOS.Kernel.Arch\ExpressOS.Kernel.Arch.csproj", "{EE6946D0-A89F-4B12-8833-4DE128AC7B7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CodeContracts-L4|x86 = CodeContracts-L4|x86
+		Release-L4|x86 = Release-L4|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA3DC7C3-BA34-40C6-94A5-D8825359EF5D}.CodeContracts-L4|x86.ActiveCfg = CodeContracts-L4|Any CPU
+		{DA3DC7C3-BA34-40C6-94A5-D8825359EF5D}.CodeContracts-L4|x86.Build.0 = CodeContracts-L4|Any CPU
+		{DA3DC7C3-BA34-40C6-94A5-D8825359EF5D}.Release-L4|x86.ActiveCfg = Release-L4|Any CPU
+		{DA3DC7C3-BA34-40C6-94A5-D8825359EF5D}.Release-L4|x86.Build.0 = Release-L4|Any CPU
+		{5D0EB0F8-7D89-457F-A993-5DE7E588FD8E}.CodeContracts-L4|x86.ActiveCfg = CodeContracts-L4|Any CPU
+		{5D0EB0F8-7D89-457F-A993-5DE7E588FD8E}.CodeContracts-L4|x86.Build.0 = CodeContracts-L4|Any CPU
+		{5D0EB0F8-7D89-457F-A993-5DE7E588FD8E}.Release-L4|x86.ActiveCfg = Release-L4|Any CPU
+		{5D0EB0F8-7D89-457F-A993-5DE7E588FD8E}.Release-L4|x86.Build.0 = Release-L4|Any CPU
+		{E5EF901C-8EF4-4FFC-84D3-24188A1D7B34}.CodeContracts-L4|x86.ActiveCfg = CodeContracts-L4|Any CPU
+		{E5EF901C-8EF4-4FFC-84D3-24188A1D7B34}.CodeContracts-L4|x86.Build.0 = CodeContracts-L4|Any CPU
+		{E5EF901C-8EF4-4FFC-84D3-24188A1D7B34}.Release-L4|x86.ActiveCfg = Release-L4|Any CPU
+		{E5EF901C-8EF4-4FFC-84D3-24188A1D7B34}.Release-L4|x86.Build.0 = Release-L4|Any CPU
+		{5B64F379-F862-4D0A-813C-C6C1C50E5D85}.CodeContracts-L4|x86.ActiveCfg = CodeContracts-L4|Any CPU
+		{5B64F379-F862-4D0A-813C-C6C1C50E5D85}.Release-L4|x86.ActiveCfg = Release|Any CPU
+		{EE6946D0-A89F-4B12-8833-4DE128AC7B7B}.CodeContracts-L4|x86.ActiveCfg = CodeContracts-L4|Any CPU
+		{EE6946D0-A89F-4B12-8833-4DE128AC7B7B}.CodeContracts-L4|x86.Build.0 = CodeContracts-L4|Any CPU
+		{EE6946D0-A89F-4B12-8833-4DE128AC7B7B}.Release-L4|x86.ActiveCfg = Release-L4|Any CPU
+		{EE6946D0-A89F-4B12-8833-4DE128AC7B7B}.Release-L4|x86.Build.0 = Release-L4|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = ExpressOS.Kernel.Driver\ExpressOS.Kernel.Driver.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.EolMarker = Windows
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/plain
+		$0.DotNetNamingPolicy = $2
+		$2.DirectoryNamespaceAssociation = None
+		$2.ResourceNamePolicy = FileFormatDefault
+		$0.StandardHeader = $3
+		$3.Text = 
+		$3.IncludeInNewFiles = True
+		$0.VersionControlPolicy = $4
+		$4.inheritsSet = Mono
+		$0.ChangeLogPolicy = $5
+		$5.UpdateMode = None
+		$5.MessageStyle = $6
+		$6.LineAlign = 0
+		$5.inheritsSet = Mono
+		outputpath = ..\Binaries\$(Configuration)
+	EndGlobalSection
+EndGlobal

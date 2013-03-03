@@ -1,0 +1,13 @@
+*#
+*.pidb
+*.userprefs
+Binaries
+*test-results/
+Source/Vandroid.Kernel.Dafny/generated/
+*obj/
+*.suo
+*~
+*.testsettings
+*.vsmdi
+Source/TestResults/
+bin/
