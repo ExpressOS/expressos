@@ -1,7 +1,7 @@
 ExpressOS
 =========
 
-ExpressOS is a high assurance OS architecture that enforce high level
+ExpressOS is a high assurance OS architecture that enforces high level
 security invariants to improve the security of mobile application,
 where the enforcement has been formally verified.
 
