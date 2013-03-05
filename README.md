@@ -18,3 +18,7 @@ This repository holds the kernel of ExpressOS. The project also holds
 the instructions of building and using ExpressOS.
 
 The source code is under the UIUC BSD open source license.
+
+This research was funded in part by AFOSR MURI grant
+FA9550-09-01-0539, ONR grant N000141210552, NSF grant CCF-1018182, and
+supported by Intel through the ISTC for Secure Computing.
