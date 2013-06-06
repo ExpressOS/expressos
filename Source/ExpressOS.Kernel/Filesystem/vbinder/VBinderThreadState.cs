@@ -29,7 +29,6 @@ namespace ExpressOS.Kernel
             Contract.Requires(!NoPendingMessages());
             Contract.Ensures(Contract.Result<VBinderMessage>().GhostTarget == Owner);
             var msg = MessageQueue.Dequeue();
-
             return msg;
         }
 

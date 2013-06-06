@@ -27,6 +27,7 @@ namespace ExpressOS.Kernel
         private void ObjectInvariantMethod()
         {
             Contract.Invariant(Head.GhostOwner == GhostOwner);
+            Contract.Invariant(Brk >= StartBrk);
         }
 
         public AddressSpace(Process owner, Arch.ArchAddressSpace impl)
@@ -35,13 +36,15 @@ namespace ExpressOS.Kernel
             Contract.Ensures(Head.GhostOwner == GhostOwner);
 
             this.impl = impl;
-            workingSet = new TableWorkingSet();
-            Head = MemoryRegion.CreateUserSpaceRegion(owner);
+            this.workingSet = new TableWorkingSet();
+            this.Head = MemoryRegion.CreateUserSpaceRegion(owner);
             this.GhostOwner = owner;
+            this.Brk = this.StartBrk = 0;
         }
 
         private void RemoveWorkingSet(Pointer vaddr, int size)
         {
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
             workingSet.Remove(this, new UserPtr(vaddr), new UserPtr(vaddr) + size);
         }
 
@@ -51,9 +54,12 @@ namespace ExpressOS.Kernel
             return AddMapping(MemoryRegion.FAULT_READ | MemoryRegion.FAULT_WRITE, 0, null, 0, 0, location.Value, memorySize);
         }
 
-        public bool AddHeapMapping(uint newBrk)
+        internal bool AddHeapMapping(uint newBrk)
         {
+            Contract.Requires(newBrk > Brk);
+
             var r = AddMapping(MemoryRegion.FAULT_READ | MemoryRegion.FAULT_WRITE, 0, null, 0, 0, new Pointer(Brk), (int)(newBrk - Brk));
+            Contract.Assert(newBrk > Brk);
             if (r == 0)
             {
                 Brk = newBrk;
@@ -136,6 +142,14 @@ namespace ExpressOS.Kernel
         internal bool VerifyWrite(UserPtr start, uint size)
         {
             return Verify(start, size, MemoryRegion.FAULT_WRITE);
+        }
+
+        internal void InitializeBrk(uint newBrk)
+        {
+            Contract.Ensures(Brk == newBrk);
+            Contract.Ensures(StartBrk == newBrk);
+
+            Brk = StartBrk = newBrk;
         }
     }
 }

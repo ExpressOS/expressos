@@ -61,21 +61,25 @@ namespace ExpressOS.Kernel
 
         #endregion
 
-        public static int Brk(Thread current, uint brk)
+        public static uint Brk(Thread current, uint brk)
         {
+            Contract.Requires(current.Parent.Space.Brk >= current.Parent.Space.StartBrk);
+            Contract.Ensures(Contract.Result<uint>() >= current.Parent.Space.StartBrk);
+
             var space = current.Parent.Space;
-            int oldBrk = (int)space.Brk;
+            uint oldBrk = space.Brk;
+
             brk = Arch.ArchDefinition.PageAlign(brk);
 
             if (brk < space.StartBrk || brk > AddressSpace.KERNEL_OFFSET
-                || brk <= space.Brk // Not handling shrink right now
+                || brk <= oldBrk // Not handling shrink right now
                 )
             {
                 return oldBrk;
             }
             else if (space.AddHeapMapping(brk))
             {
-                return (int)brk;
+                return brk;
             }
             else
             {

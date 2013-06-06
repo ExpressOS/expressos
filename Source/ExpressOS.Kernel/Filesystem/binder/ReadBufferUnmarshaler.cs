@@ -103,6 +103,7 @@ namespace ExpressOS.Kernel
 
         private static int PatchReadBuffer(Thread current, ByteBufferRef marshaledBuffer)
         {
+            Contract.Requires(current.Parent != null);
             var cursor = 0;
             while (cursor < marshaledBuffer.Length)
             {
@@ -161,6 +162,8 @@ namespace ExpressOS.Kernel
 
         private static int PatchReadTransaction(Thread current, Pointer marshaledBufferStart, ref binder_transaction_data tr)
         {
+            Contract.Requires(current.Parent != null);
+
             if (tr.data_size != 0)
                 tr.data_buffer += current.Parent.binderVMStart.Value.ToUInt32();
 

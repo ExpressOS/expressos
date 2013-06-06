@@ -9,17 +9,23 @@ namespace ExpressOS.Kernel
 
         void RemoveNode(MemoryRegion prev, MemoryRegion r)
         {
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
+
             prev.Next = r.Next;
         }
 
         void InsertNode(MemoryRegion prev, MemoryRegion r)
         {
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
+
             r.Next = prev.Next;
             prev.Next = r;
         }
 
         bool TryMergeWithNext(MemoryRegion r)
         {
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
+
             var next = r.Next;
             if (next != null && MemoryRegion.CanMerge(r, next))
             {
@@ -35,6 +41,8 @@ namespace ExpressOS.Kernel
 
         void InsertOrMerge(MemoryRegion prev, MemoryRegion r, MemoryRegion next)
         {
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
+
             if (MemoryRegion.CanMerge(prev, r))
             {
                 prev.Expand(r);
@@ -82,6 +90,7 @@ namespace ExpressOS.Kernel
         void Insert(MemoryRegion r)
         {
             Contract.Requires(r != null && r.GhostOwner == GhostOwner);
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
 
             var h = Head.Next;
             var prev = Head;
@@ -102,6 +111,7 @@ namespace ExpressOS.Kernel
         {
             Contract.Requires(r.BackingFile == null || r.BackingFile.GhostOwner == r.GhostOwner);
             //Contract.Ensures(Contract.Result<MemoryRegion>().BackingFile.GhostOwner == Contract.Result<MemoryRegion>().GhostOwner);
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
 
             MemoryRegion next;
             if (offset >= r.FileSize)
@@ -117,7 +127,6 @@ namespace ExpressOS.Kernel
             r.CutRight(r.Size - offset);
             InsertNode(r, next);
             return next;
-
         }
 
         void UpdateAccessRights(MemoryRegion r, uint newaccess)
@@ -143,6 +152,7 @@ namespace ExpressOS.Kernel
             Contract.Requires(0 <= fileSize && fileSize <= memorySize);
             Contract.Requires(file == null || fileSize > 0);
             Contract.Requires(file != null || (fileSize == 0 && fileOffset == 0));
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
 
             if (memorySize <= 0 || Arch.ArchDefinition.PageOffset(memorySize) != 0)
                 return -ErrorCode.EINVAL;
@@ -239,6 +249,7 @@ namespace ExpressOS.Kernel
         internal int RemoveMapping(Pointer vaddr, int size)
         {
             Contract.Requires(size > 0);
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
 
             if (Arch.ArchDefinition.PageOffset(size) != 0 || Arch.ArchDefinition.PageOffset(vaddr.ToUInt32()) != 0)
                 return -ErrorCode.EINVAL;
@@ -277,9 +288,12 @@ namespace ExpressOS.Kernel
 
         private void RemoveMappingLeft(Pointer vaddr, int size, out int ret, out bool changed, out MemoryRegion prev)
         {
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
+
             prev = Head;
             var r = prev.Next;
             var end = vaddr + size;
+            var oldBrk = Brk;
 
             if (Head.OverlappedInt(vaddr, size))
             {
@@ -324,6 +338,7 @@ namespace ExpressOS.Kernel
                 r = r.Next;
                 ret = 1;
                 changed = true;
+                Contract.Assert(Brk == oldBrk);
                 return;
             }
             ret = 1;
@@ -333,6 +348,8 @@ namespace ExpressOS.Kernel
 
         private void RemoveMappingCenter(Pointer vaddr, int size, ref MemoryRegion prev, out int ret, out bool changed)
         {
+            Contract.Ensures(Brk == Contract.OldValue(Brk));
+
             changed = false;
             var r = prev.Next;
             var end = vaddr + size;

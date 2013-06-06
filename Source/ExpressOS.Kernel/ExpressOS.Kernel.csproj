@@ -89,12 +89,12 @@
     <CodeContractsCustomRewriterClass />
     <CodeContractsLibPaths />
     <CodeContractsExtraRewriteOptions />
-    <CodeContractsExtraAnalysisOptions>-show unreached</CodeContractsExtraAnalysisOptions>
+    <CodeContractsExtraAnalysisOptions>-show unreached -suggest=!!</CodeContractsExtraAnalysisOptions>
     <CodeContractsBaseLineFile>..\..\baseline.xml</CodeContractsBaseLineFile>
     <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
     <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
     <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
-    <CodeContractsAnalysisWarningLevel>2</CodeContractsAnalysisWarningLevel>
+    <CodeContractsAnalysisWarningLevel>3</CodeContractsAnalysisWarningLevel>
     <CodeContractsMissingPublicRequiresAsWarnings>True</CodeContractsMissingPublicRequiresAsWarnings>
     <CodeContractsSQLServerOption />
     <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>

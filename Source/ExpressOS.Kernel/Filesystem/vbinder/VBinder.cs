@@ -63,7 +63,8 @@ namespace ExpressOS.Kernel
             if (!current.Parent.Space.VerifyWrite(userBuf, size) || !current.Parent.Space.VerifyWrite(ptr_label, sizeof(int)))
                 return -ErrorCode.EFAULT;
 
-            if (current.VBinderState.NoPendingMessages())
+            var b = current.VBinderState.NoPendingMessages();
+            if (b)
             {
                 var entry = new VBinderCompletion(current, ptr_label, userBuf, size);
                 current.VBinderState.Completion = entry;
@@ -75,6 +76,7 @@ namespace ExpressOS.Kernel
             else
             {
                 var msg = current.VBinderState.TakeMessage();
+
                 Contract.Assert(msg.GhostTarget == current);
 
                 var length = msg.Length;

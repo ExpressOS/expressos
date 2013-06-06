@@ -76,8 +76,9 @@ namespace ExpressOS.Kernel
             Contract.Ensures(Contract.Result<VBinderMessage>() != null && Contract.Result<VBinderMessage>().GhostTarget == GhostOwner);
 
             var x = data[first];
-            data[first] = null;
-            first = first + 1 == data.Length ? 0 : first + 1;
+            data[first++] = null;
+            if (first == data.Length)
+                first = 0;
             --len;
 
             // Proven by Dafny

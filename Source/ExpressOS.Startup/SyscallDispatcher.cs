@@ -97,7 +97,7 @@ namespace ExpressOS.Kernel.Arch
                     break;
 
                 case __NR_brk:
-                    retval = ExpressOS.Kernel.Memory.Brk(current, (uint)arg0);
+                    retval = (int)ExpressOS.Kernel.Memory.Brk(current, (uint)arg0);
                     break;
 
                 case __NR_ioctl:

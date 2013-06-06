@@ -177,8 +177,7 @@ namespace ExpressOS.Kernel
                 var segmentEnd = (vaddr + memSize).ToUInt32();
                 if (segmentEnd > proc.Space.Brk)
                 {
-                    proc.Space.Brk = segmentEnd;
-                    proc.Space.StartBrk = segmentEnd;
+                    proc.Space.InitializeBrk(segmentEnd);
                 }
             }
             return 0;
