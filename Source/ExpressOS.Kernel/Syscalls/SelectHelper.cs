@@ -105,7 +105,7 @@ namespace ExpressOS.Kernel
                 return 0;
 
             var buf = new byte[(maxfds + 7) / 8];
-            if (fdlist.Read(current, buf, buf.Length) != 0)
+            if (fdlist.Read(current, buf) != 0)
                 return -ErrorCode.EFAULT;
 
             var vec = new FixedSizeBitVector(maxfds, buf);

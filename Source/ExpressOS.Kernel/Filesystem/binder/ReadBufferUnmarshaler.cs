@@ -90,6 +90,10 @@ namespace ExpressOS.Kernel
                 //BinderIPCMarshaler.DumpBuf(marshaledPtr, length); 
                 var b = buf.Slice(cursor, length);
 
+                if (b.Length + offset > current.Parent.binderVMSize)
+                    return -1;
+
+                Contract.Assert(offset + b.Length <= current.Parent.binderVMSize); 
                 if ((current.Parent.binderVMStart + offset).Write(current, b) != 0)
                     return -1;
 
@@ -267,7 +271,7 @@ namespace ExpressOS.Kernel
                 return false;
 
             var buf = InspectionBuffer;
-            tr.data_buffer.Read(current, buf, buf.Length);
+            tr.data_buffer.Read(current, buf);
 
             bool header_matched = true;
             for (var i = 0; i < WindowFocusChangedHeader.Length && header_matched; ++i)

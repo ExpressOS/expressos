@@ -122,11 +122,12 @@ namespace ExpressOS.Kernel
             return 0;
         }
 
-        public static void DumpUserBuf(Thread current, UserPtr writeBuf, int size)
+        private static void DumpUserBuf(Thread current, UserPtr writeBuf, int size)
         {
             var buf = new byte[(size + 3) / 4];
-            var buf_ref = new ByteBufferRef(buf);
             writeBuf.Read(current, buf, size);
+
+            var buf_ref = new ByteBufferRef(buf);
             DumpBuf(new Pointer(buf_ref.Location), size);
         }
 

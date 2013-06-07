@@ -315,6 +315,11 @@ namespace ExpressOS.Kernel
             return r;
         }
 
+        internal int Read(Thread current, byte[] buf)
+        {
+            return Read(current, buf, buf.Length);
+        }
+
         #endregion
 
         internal unsafe int Read(Thread current, byte[] WriteBuffer, int chunk_len)
@@ -327,12 +332,17 @@ namespace ExpressOS.Kernel
 
         #region Write Helpers
 
-        public int Write(Thread current, int v)
+        int Write(Process proc, ByteBufferRef val)
+        {
+            return Write(proc, new Pointer(val.Location), val.Length);
+        }
+
+        internal int Write(Thread current, int v)
         {
             return Write(current.Parent, v);
         }
 
-        public unsafe int Write(Thread current, short v)
+        internal unsafe int Write(Thread current, short v)
         {
             return Write(current.Parent, new Pointer(&v), sizeof(short));
         }
@@ -349,16 +359,10 @@ namespace ExpressOS.Kernel
             return Write(proc, b);
         }
 
-        internal int Write(Process proc, ByteBufferRef val)
-        {
-            return Write(proc, new Pointer(val.Location), val.Length);
-        }
-
         internal int Write(Thread current, ByteBufferRef val)
         {
             return Write(current.Parent, val);
         }
-
 
         internal int Write(Thread current, byte[] val)
         {

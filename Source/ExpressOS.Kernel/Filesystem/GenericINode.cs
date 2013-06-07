@@ -1,4 +1,5 @@
-﻿namespace ExpressOS.Kernel
+﻿using System.Diagnostics.Contracts;
+namespace ExpressOS.Kernel
 {
     /*
      * The base class of all inodes.

@@ -86,7 +86,7 @@ namespace ExpressOS.Kernel
 
             var iovec_buf = new byte[IOVector.Size * iovcnt];
 
-            if (iovPtr.Read(current, iovec_buf, iovec_buf.Length) != 0)
+            if (iovPtr.Read(current, iovec_buf) != 0)
             {
                 Arch.Console.WriteLine("Cannot read iovec");
                 return -ErrorCode.EFAULT;
